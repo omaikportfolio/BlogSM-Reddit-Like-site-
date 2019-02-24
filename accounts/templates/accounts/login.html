@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% load staticfiles %}
+{% block content %}
+<div class="container login-form">
+  <h1>LogIn</h1>
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" name="" value="Login">
+  </form>
+</div>
+<link rel="stylesheet" href="{% static "css/accounts/login-form.css" %}">
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="container profile-box">
+    <button class="btn btn-dark update-btn-profile" type="button" name="button"><a id="profile-update-anchor" href="{% url 'accounts:profile_update' pk=user.pk %}">Update Profile</a></button>
+    <img class="profile-image" src="{{ user.profile.profile_pic_thumbnail.url }}" alt="{% static "images/default.jpg" %}">
+    <h1 class="profile-name">{{ user.username|title }}</h1>
+    <div class="container">
+      <div class="row profile-info-grid">
+        <div class="col-sm">
+          <h3>Birth date</h3>
+          <h6>{{ user.profile.birth_date|date:"d/m/Y" }}</h6>
+        </div>
+        <div class="col-sm mid-grid-profile">
+          <h3>Gender</h3>
+          <h6>{{ user.profile.gender|title }}</h6>
+        </div>
+        <div class="col-sm">
+          <h3>Location</h3>
+          <h6>{{ user.profile.location }}</h6>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h3>BIO</h3>
+      <p class="profile-bio">{{ user.profile.bio }}</p>
+    </div>
+  </div>
+{% endblock %}
